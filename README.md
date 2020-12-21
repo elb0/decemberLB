@@ -13,26 +13,13 @@ library("devtools")
 library("tidyverse")
 ```
 
-    ## ── Attaching packages ─────────────────────────────────────────────────── tidyverse 1.3.0 ──
 
-    ## ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
-    ## ✓ tibble  3.0.3     ✓ dplyr   1.0.2
-    ## ✓ tidyr   1.1.2     ✓ stringr 1.4.0
-    ## ✓ readr   1.4.0     ✓ forcats 0.5.0
-
-    ## ── Conflicts ────────────────────────────────────────────────────── tidyverse_conflicts() ──
-    ## x dplyr::filter() masks stats::filter()
-    ## x dplyr::lag()    masks stats::lag()
-
-My december holiday example is based heavily on the ochRe package, an
+My December holiday example is based heavily on the ochRe package, an
 ‘Australian’ themed set of colour palettes.
 
 ``` r
 devtools::install_github("ropenscilabs/ochRe")
 ```
-
-    ## Skipping install of 'ochRe' from a github remote, the SHA1 (9a3ef466) has not changed since last install.
-    ##   Use `force = TRUE` to force installation
 
 ``` r
 library("ochRe")
