@@ -7,8 +7,6 @@ Making a personal colour palette package
 library("devtools")
 ```
 
-    ## Loading required package: usethis
-
 ``` r
 library("tidyverse")
 ```
