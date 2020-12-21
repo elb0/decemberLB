@@ -5,21 +5,14 @@ Making a personal colour palette package
 
 ``` r
 library("devtools")
-```
-
-``` r
 library("tidyverse")
 ```
 
-
-My December holiday example is based heavily on the ochRe package, an
+My december holiday example is based heavily on the ochRe package, an
 ‘Australian’ themed set of colour palettes.
 
 ``` r
 devtools::install_github("ropenscilabs/ochRe")
-```
-
-``` r
 library("ochRe")
 ```
 
@@ -65,29 +58,33 @@ You’ll usually see a colour written in one of 4 ways:
 We’ll be using hex codes for this example. If you’re ever working on the
 colours for a personal website you’ll probably use hex codes there too.
 
-coolors.co is great for pulling colours from an image and getting the
-associated hex codes. You can input the URL for an image on the web,
-without having to download.
+[coolors.co](https://coolors.co/image-picker) is great for pulling
+colours from an image and getting the associated hex codes. You can
+input the URL for an image on the web, without having to download.
 
 ``` r
 browseURL("https://coolors.co/image-picker")
 ```
 
 Let’s look at en example using this *Red and Turquoise Christmas colour
-palette* from artsyfarstylife.com.
+palette* from [artsyfarstylife.com](artsyfarstylife.com).
+
+Direct image link:
+<https://artsyfartsylife.com/wp-content/uploads/2019/12/Modern-Red-Turquoise-Christmas-Color-Palette.jpg>
 
 ![](https://artsyfartsylife.com/wp-content/uploads/2019/12/Modern-Red-Turquoise-Christmas-Color-Palette.jpg)
 
 Once you’ve played around with the tool, you can click ‘Export’ and I’d
-recommend copying from the ‘Code’ part, specifically the bit under /\*
-Object \*/ as it is probably most useful to you.
+recommend copying from the ‘Code’ part, specifically the bit under `/*
+Object */` as it is probably most useful to you. Here is a little gif of
+how to do this:
 
 ![](Img/coolors.gif)
 
 In my case, this is what I got:
 
-{“Lava”:“C8001C”,“Burgundy”:“7C0322”,“Pistachio”:“91C153”,“Sky Blue
-Crayola”:“78DFE4”,“Cadet Blue”:“609FA4”}
+`{"Lava":"C8001C","Burgundy":"7C0322","Pistachio":"91C153","Sky Blue
+Crayola":"78DFE4","Cadet Blue":"609FA4"}`
 
 I want to make this into proper R code, though:
 
@@ -104,9 +101,10 @@ xmas = c(
 
 Notice that I have added hashtags before the hex codes and put the human
 readable name next to each one as a comment. You don’t need to keep the
-names, but might make it easier to makes changes later. The code just
-creates a character vector with the hex codes for this palette, and I am
-calling this palette ‘xmas’.
+names, but this might make it easier to makes changes later if you have
+a general idea which colour is which. The code just creates a character
+vector with the hex codes for this palette, and I am calling this
+palette ‘xmas’.
 
 Repeat this as many times as you want to get vectors for each palette
 that you want to include.
@@ -248,11 +246,12 @@ of the form `scale_fill_*()` or `scale_color_*()`. One I use a lot is
 the great palettes from <https://colorbrewer2.org/>.
 
 As with the above, this whole chunk below should be saved as it’s own .R
-file (maybe something like `scales.R`) in your packages R folder. Once
-again, it was mostly a matter of looking at the ochRe version and
-replacing things to match what I wanted them called. It makes two
-functions, one for ‘colour’ situations and one for ‘fill’ situations in
-ggplot. It also allows for either spelling of colour to be used.
+file (maybe something like `scales.R`) in your package’s R folder. Once
+again, setting this up was mostly a matter of looking at the ochRe
+version and replacing things to match what I wanted them called. It
+makes two functions, one for ‘colour’ situations and one for ‘fill’
+situations in ggplot. It also allows for either spelling of colour to be
+used.
 
 ``` r
 #' december palettes with ramped colours
@@ -353,23 +352,21 @@ scale_fill_december <- function(..., palette="winter_solstice",
 
 # My `decemberLB` package
 
-This is my quick attempt at a package that has some colour palettes for
-December holidays. <https://github.com/elb0/decemberLB> I haven’t put
-any work into the documentation, so don’t use it as a role model for
-that\!
+So put this all together and you get my quick attempt at a package that
+has some colour palettes for December holidays:
+<https://github.com/elb0/decemberLB>. I haven’t put any work into the
+documentation, so don’t use it as a role model for that\!
 
-You can install it with `devtools::install_github()` (yes, my username
+You can install it with `devtools::install_github()` (*yes, my username
 is elb0, I wish I’d picked a better one…If you haven’t set up an account
-yet, just make it your name or initial and name or something nice and
-professional like that\!).
+yet, just make it your name or initials + name or something nice and
+professional like that\!*).
 
 ``` r
 devtools::install_github("elb0/decemberLB", ref = "main", force = TRUE)
 ```
 
-    ## Downloading GitHub repo elb0/decemberLB@main
-
-    ##      checking for file ‘/private/var/folders/9z/mqg8cp0j0xl6t3hk0n9c02_c0000gn/T/RtmpsWstUR/remotes13154398e57a3/elb0-decemberLB-71352f2/DESCRIPTION’ ...  ✓  checking for file ‘/private/var/folders/9z/mqg8cp0j0xl6t3hk0n9c02_c0000gn/T/RtmpsWstUR/remotes13154398e57a3/elb0-decemberLB-71352f2/DESCRIPTION’
+    ##      checking for file ‘/private/var/folders/9z/mqg8cp0j0xl6t3hk0n9c02_c0000gn/T/RtmpGPJLdq/remotes132e74e42f742/elb0-decemberLB-f7c81a7/DESCRIPTION’ ...  ✓  checking for file ‘/private/var/folders/9z/mqg8cp0j0xl6t3hk0n9c02_c0000gn/T/RtmpGPJLdq/remotes132e74e42f742/elb0-decemberLB-f7c81a7/DESCRIPTION’
     ##   ─  preparing ‘decemberLB’:
     ##      checking DESCRIPTION meta-information ...  ✓  checking DESCRIPTION meta-information
     ##   ─  checking for LF line-endings in source and make files and shell scripts
@@ -381,17 +378,7 @@ devtools::install_github("elb0/decemberLB", ref = "main", force = TRUE)
 ``` r
 library(tidyverse)
 library(decemberLB)
-```
 
-    ## 
-    ## Attaching package: 'decemberLB'
-
-    ## The following objects are masked _by_ '.GlobalEnv':
-    ## 
-    ##     dec_pal, scale_color_december, scale_colour_december,
-    ##     scale_fill_december
-
-``` r
 mtcars %>% 
   mutate(cyl = factor(cyl)) %>% 
   ggplot(aes(x = mpg, y = disp, color = cyl)) +
